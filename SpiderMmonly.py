@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
-def getHTMLContent(url):#函数的主要功能就是抓取页面的内容，返回r.text
+def getHTMLContent(url):#函数的主要功能就是抓取页面的内容，返回r.content
     try:
         kv = {'user-agent': 'Mozilla/5.0'}
         r = requests.get(url, headers = kv)
@@ -34,6 +34,7 @@ def downPict(path,url):
     except:
         print('下载失败')
 
+#解析具体一份套图的网页地址
 def parserUrl(url):
     try:
         pattern_url = url.split('.ht')[0] + '_{}.html'#得到的是具体套图网页的通用网址
